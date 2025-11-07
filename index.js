@@ -7,11 +7,19 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 // firebase token validation
 const admin = require("firebase-admin");
-const serviceAccount = require("./smart-deals-firebase-admin-key.json");
+serviceAccount = require("./smart-deals-firebase-admin-key.json");
+
+// const decoded = Buffer.from(
+//   process.env.FIREBASE_SERVICE_KEY,
+//   "base64"
+// ).toString("utf8");
+// const serviceAccount = JSON.parse(decoded);
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
+// mongoDB link
 const uri = process.env.MONGODB_URI;
 
 // Middleware
@@ -164,7 +172,7 @@ async function run() {
 
     // delete bid
     app.delete("/bids/:id", verifyFireBaseToken, async (req, res) => {
-      const id = req.params;
+      const { id } = req.params;
       const result = await bidsCollection.deleteOne({ _id: new ObjectId(id) });
       res.send(result);
     });
