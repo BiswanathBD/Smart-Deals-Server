@@ -7,13 +7,13 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 // firebase token validation
 const admin = require("firebase-admin");
-serviceAccount = require("./smart-deals-firebase-admin-key.json");
+// serviceAccount = require("./smart-deals-firebase-admin-key.json");
 
-// const decoded = Buffer.from(
-//   process.env.FIREBASE_SERVICE_KEY,
-//   "base64"
-// ).toString("utf8");
-// const serviceAccount = JSON.parse(decoded);
+const decoded = Buffer.from(
+  process.env.FIREBASE_SERVICE_KEY,
+  "base64"
+).toString("utf8");
+const serviceAccount = JSON.parse(decoded);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
