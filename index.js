@@ -20,7 +20,8 @@ admin.initializeApp({
 });
 
 // mongoDB link
-const uri = process.env.MONGODB_URI;
+const uri =
+  "mongodb+srv://project-crud-user:wCknXRlFYcgARqqY@project-crud.phceeae.mongodb.net/?appName=Project-crud";
 
 // Middleware
 app.use(cors());
