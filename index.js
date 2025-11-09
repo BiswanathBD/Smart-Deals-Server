@@ -1,4 +1,4 @@
-require("dotenv").config({ path: ".env.local" });
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -183,4 +183,6 @@ async function run() {
 }
 run().catch(console.dir);
 
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Smart Deals listening on port ${port}`);
+});
