@@ -4,7 +4,7 @@ smart-deals-firebase-admin-key.json
 config.bat
 
 # Security & Editor ignore
-.vscode/
-api.js
-api.ts
+!.vscode/
+!api.js
+!api.ts
 **/public/fonts/
